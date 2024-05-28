@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/system";
-
-const inter = Inter({ subsets: ["latin"] });
+import NavBar from "@/components/NavBar";
+import { inter } from "@/libs/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextUIProvider>
-          <main className="bg-red-600">{children}</main>
+          <main className="">
+            <NavBar />
+            {children}
+          </main>
         </NextUIProvider>
       </body>
     </html>
