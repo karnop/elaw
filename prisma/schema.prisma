@@ -28,8 +28,16 @@ model ipc_section {
   section_desc  String
 }
 
+model cpc_section {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  section       String
+  section_title String
+  section_desc  String
+}
+
 model advocates {
   id                             String  @id @default(auto()) @map("_id") @db.ObjectId
+  userid                         String
   email                          String  @unique
   name                           String
   phone                          String

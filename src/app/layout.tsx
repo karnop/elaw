@@ -3,6 +3,7 @@ import "./globals.css";
 import { NextUIProvider } from "@nextui-org/system";
 import NavBar from "@/components/NavBar";
 import { inter } from "@/libs/fonts";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextUIProvider>
-          <main className="">
+          <main className="min-h-[100vh] flex flex-col justify-between">
             <NavBar />
             {children}
+            <Footer />
           </main>
         </NextUIProvider>
       </body>

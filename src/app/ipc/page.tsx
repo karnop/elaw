@@ -1,26 +1,21 @@
 import React from "react";
 import { ipcChaptersSections } from "@/db/ipc";
 import SearchBox from "@/components/SearchBox";
+import { Metadata } from "next";
 
-function Page() {
-  // let ipcSection: string[] = [];
-  // ipcJson
-  //   .filter((item, index) => index >= 511)
-  //   .map((article) => (
-  //     <div key={article.section_title}>
-  //       d
-  //       {ipcSection.push(
-  //         "Section " + article.Section + " : " + article.section_title,
-  //       )}
-  //     </div>
-  //   ));
+export const metadata: Metadata = {
+  title: "IPC - Indian Penal Code",
+  description:
+    "The Indian Penal Code (IPC) was the official criminal code in the Republic of India, inherited from British India after independence, until it was replaced by Bharatiya Nyaya Sanhita in December 2023.",
+};
 
-  // const chapters = ipcSection.filter(
-  //   (value, index, self) => self.indexOf(value) === index,
-  // );
+async function Page() {
   return (
-    <div className="flex flex-col items-center justify-center h-[vh] p-3">
-      <div className="bg-default-200 rounded-xl p-4 flex flex-col max-w-5xl mt-4">
+    <div className="flex flex-col justify-center h-[vh] p-3 items-stretch max-w-5xl mx-auto">
+      <div className="max-w-5xl">
+        <SearchBox array={ipcChaptersSections} boxFor="ipc" />
+      </div>
+      <div className="bg-secondary rounded-xl p-4 flex flex-col max-w-5xl mt-4">
         <div className="text-xl md:text-2xl font-semibold text-center m-3">
           Indian Penal Code
         </div>
@@ -38,11 +33,6 @@ function Page() {
           since been amended several times and is now supplemented by other
           criminal provisions.
         </div>
-      </div>
-
-      <div className="max-w-5xl bg-red-600 flex mt-4">
-        <div className=""></div>
-        <SearchBox array={ipcChaptersSections} />
       </div>
     </div>
   );

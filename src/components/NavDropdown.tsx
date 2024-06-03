@@ -8,8 +8,8 @@ import {
 } from "@nextui-org/dropdown";
 import { Button } from "@nextui-org/button";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { roboto } from "@/libs/fonts";
+import { redirect } from "next/navigation";
 
 function NavDropdown() {
   return (
@@ -25,8 +25,14 @@ function NavDropdown() {
         variant={"faded"}
         className="opacity-100"
       >
-        <DropdownItem key="ipc" className="text-center">
-          <Link href="/ipc">IPC</Link>
+        <DropdownItem
+          onClick={() => {
+            redirect("/ipc");
+          }}
+          key="ipc"
+          className="text-center"
+        >
+          IPC
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
